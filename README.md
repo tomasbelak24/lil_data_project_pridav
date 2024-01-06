@@ -41,7 +41,9 @@ Prečo sme si vybrali log skóre ako najlepšie?
 
 ## Exploratívna dátová analýza
 Závislosť skóre od žánru
-![Závislosť skóre od žánru](./images/genres_score_corr.png)
+![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
+![Závislosť skóre od viacerých žánrov](./images/genres2_score_corr.png)
+
 
 
 TODO Heatmapy, korelačne grafy?
