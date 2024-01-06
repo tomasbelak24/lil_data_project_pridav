@@ -36,6 +36,13 @@ Z nasledujúcej tabuľky, môžeme vidieť, že aj normalizované a pragmatické
 | 75%   |         7.1     |    315           |     34.1694  |      6.21367e-05 |      0.0786261   |
 | max   |        10       |      2.83492e+06 |    138.175   |      0.93        |   1176.8         |
 
+TODO 
+Prečo sme si vybrali log skóre ako najlepšie? 
+
+## Exploratívna dátová analýza
+Závislosť skóre od žánru
+![Závislosť skóre od žánru](./images/genres_score_corr.png)
+
 
 TODO Heatmapy, korelačne grafy?
 
