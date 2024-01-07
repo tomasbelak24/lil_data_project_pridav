@@ -20,7 +20,7 @@ V práci používame primárne nami vytvorenú tabuľku `df_films`, ktorá vznik
 - vek filmu - vypočítaný ako rok 2024 - rok výroby filmu.
 
 Použité filtre na dáta:
-- keďže chceme pracovať s filmami, odfiltrovali sme seriály, krátke filmy, videá a iné typy záznamov
+- keďže chceme pracovať s filmami, odfiltrovali a vylúčili sme seriály, krátke filmy, videá a iné typy záznamov
 - vybrali sme len hercov a režisérov a iba takích, ktorí pracovali na filmoch v našej tabuľke
 
 Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
@@ -49,7 +49,10 @@ Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované aj pragmatické
 
 **TODO Prečo sme zvolili log skóre?**
 
-**TODO Popísať nevýhodu log skóre -** `10 * log(10) = 1 * log(10^10)`, tj film s malo dobrymi hlasmi moze mat rovnake skore ako zly film s vela hlasmi
+
+Naša miera obľúbenosti, log skóre, má jednu zásadnú nevýhodu. Vieme ukázať, že film s veľmi veľa negatívnymi hlasmi môže mať rovnaké, ak nie lepšie log skóre, ako film s málo perfektnými hodnoteniami. Napríklad film s priemerným hodnotením 10 a desiatimi hlasmi bude mať rovnaké skóre, ako film s priemerným skóre 1 a počtom hlasov `10^10`. 
+
+**TODO pohladat zaznamy, kde toto nastava a popisat, co s tym**
 
 ## Exploratívna dátová analýza
 ### Základné vlastnosti našich dát:
@@ -80,9 +83,17 @@ Sumárne štatistiky pre koreláciu žánru od skóre.
 
 ![Závislosť skóre od viacerých žánrov](./images/genres2_score_corr.png)
 
-
-
-TODO Heatmapy, korelačne grafy?
+Závislosť skóre od viacerích žánrov
+|       |    log_score |
+|:------|-------------:|
+| count | 30           |
+| mean  | -0.000845098 |
+| std   |  0.041377    |
+| min   | -0.0656707   |
+| 25%   | -0.030552    |
+| 50%   | -0.00704689  |
+| 75%   |  0.0228701   |
+| max   |  0.099292    |
 
 ## Hypotézy a pozorovania
 TODO
