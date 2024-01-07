@@ -6,15 +6,26 @@ Skupina: Lil Data
 ```
 
 ## Zdroj dát
-Naše dáta pochádzajú z portálu IMDb - internetovej filmovej databázy. Stiahli sme si dáta vo formáte .tsv, exportovali do databázy a z nej vybrali nasledovné stĺpce:
+Naše dáta pochádzajú z portálu IMDb - internetovej filmovej databázy. Stiahli sme si dáta vo formáte .tsv zo [stránky](https://datasets.imdbws.com/) a exportovali do databázy.
 
-- Názov filmu, 
-- rok vydania filmu,
-- dĺžka filmu v minútach
-- žánre filmu - film môže mať jeden alebo viac žánrov
+V práci používame primárne nami vytvorenú tabuľku `df_films`, ktorá vznikla spojením a dopočítaním viacerích tabuliek z našej databázy. V tabuľke máme nasledovné dáta o filmoch: 
+- priemerné hodnotenie, 
+- počet hodnotení, 
+- nami vypočítané skóre (viac v nasledujúcej časti textu),
+- počet prekladov filmu, 
+- či je film pre dospelých, 
+- rok výroby filmu, 
+- dĺžka filmu v minútach, 
+- žáner (jeden alebo viac) a 
+- vek filmu - vypočítaný ako rok 2024 - rok výroby filmu.
 
-a neskôr pridáme aj stĺpce ako herec a režisér. 
+Použité filtre na dáta:
+- keďže chceme pracovať s filmami, odfiltrovali sme seriály, krátke filmy, videá a iné typy záznamov
+- vybrali sme len hercov a režisérov a iba takích, ktorí pracovali na filmoch v našej tabuľke
 
+Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
+- 20 najlepších, najhorších hercov a režisérov sme spísali z štatistík na portáli IMDb
+- Zoznam filmov, v ktorých hlavná postava mala nejaké znevýhodnenie (fyzické či psychické)
 
 ## Miera obľúbenosti
 Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skúre filmu prenásobené logaritmom počtu hodnotení. 
@@ -23,7 +34,7 @@ Druhé skôre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako
 
 Ako tretie sme použili pragmatické skóre, počítané rovnako ako normalizované, iba namiesto maxím použijeme priemery. 
 
-Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované a pragmatické skóre majú výraznejšie rozdiely medzi tretím a štrvtým kvartilom ako má log skóre. Log skóre bolo výhodnejšie aj z hľadiska matematických operácií a čitateľnosti, kde normalizované aj pragmatické skóre majú veľmi dlhé desatinné čísla. 
+Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované aj pragmatické skóre majú výraznejšie rozdiely medzi tretím a štrvtým kvartilom ako má log skóre. Log skóre bolo výhodnejšie aj z hľadiska matematických operácií a čitateľnosti, kde normalizované aj pragmatické skóre majú veľmi dlhé desatinné čísla. 
 
 |       |   averageRating |         numVotes |    log_score |       norm_score |       prag_score |
 |:------|----------------:|-----------------:|-------------:|-----------------:|-----------------:|
@@ -36,10 +47,22 @@ Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované a pragmatické 
 | 75%   |         7.1     |    315           |     34.1694  |      6.21367e-05 |      0.0786261   |
 | max   |        10       |      2.83492e+06 |    138.175   |      0.93        |   1176.8         |
 
+**TODO Prečo sme zvolili log skóre?**
+
+**TODO Popísať nevýhodu log skóre -** `10 * log(10) = 1 * log(10^10)`, tj film s malo dobrymi hlasmi moze mat rovnake skore ako zly film s vela hlasmi
+
 ## Exploratívna dátová analýza
+### Základné vlastnosti našich dát:
+
+**TODO Rozdelenie log skóre**
+
+![Histogram rozdelenia log skóre](./images/log_score_dist.png)
+
+![Rozdelenie kategórií](./images/dist_of_categories.png)
+
 Ako prvé sme pozreli, či a ako vplýva žáner filmu na jeho obľúbenosť. Z nasledujúcich grafov vidno, že skóre, resp. obľúbenosť, nemá významnú závislosť od žánru a skupín žánrov. Stredná hodnota korelácie je 4.3%, s tretím kvartilom na 6.8% percentách, čo je pod hranicou významnosti. Dva žánre, ktoré mali koreláciu nad 10%: Drama a Crime.
 
-TODO: Doplniť popis a vysvetlenia
+**TODO: Doplniť popis a vysvetlenia**
 
 ![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
 
