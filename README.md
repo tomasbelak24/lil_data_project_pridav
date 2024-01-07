@@ -19,11 +19,11 @@ a neskôr pridáme aj stĺpce ako herec a režisér.
 ## Miera obľúbenosti
 Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skúre filmu prenásobené logaritmom počtu hodnotení. 
 
-Druhé skôre ktoré sme skúšali bolo normalizované skóre, počítané ako priemerné skóre krát počet hodnotení filmu vydelené maximálnym skóre a maximálnym počtom hodnotení.
+Druhé skôre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako priemerné skóre krát počet hodnotení filmu vydelené maximálnym skóre a maximálnym počtom hodnotení.
 
 Ako tretie sme použili pragmatické skóre, počítané rovnako ako normalizované, iba namiesto maxím použijeme priemery. 
 
-Z nasledujúcej tabuľky, môžeme vidieť, že aj normalizované a pragmatické skóre majú veľkých 
+Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované a pragmatické skóre majú výraznejšie rozdiely medzi tretím a štrvtým kvartilom ako má log skóre. Log skóre bolo výhodnejšie aj z hľadiska matematických operácií a čitateľnosti, kde normalizované aj pragmatické skóre majú veľmi dlhé desatinné čísla. 
 
 |       |   averageRating |         numVotes |    log_score |       norm_score |       prag_score |
 |:------|----------------:|-----------------:|-------------:|-----------------:|-----------------:|
@@ -36,12 +36,25 @@ Z nasledujúcej tabuľky, môžeme vidieť, že aj normalizované a pragmatické
 | 75%   |         7.1     |    315           |     34.1694  |      6.21367e-05 |      0.0786261   |
 | max   |        10       |      2.83492e+06 |    138.175   |      0.93        |   1176.8         |
 
-TODO 
-Prečo sme si vybrali log skóre ako najlepšie? 
-
 ## Exploratívna dátová analýza
-Závislosť skóre od žánru
+Ako prvé sme pozreli, či a ako vplýva žáner filmu na jeho obľúbenosť. Z nasledujúcich grafov vidno, že skóre, resp. obľúbenosť, nemá významnú závislosť od žánru a skupín žánrov. Stredná hodnota korelácie je 4.3%, s tretím kvartilom na 6.8% percentách, čo je pod hranicou významnosti. Dva žánre, ktoré mali koreláciu nad 10%: Drama a Crime.
+
+TODO: Doplniť popis a vysvetlenia
+
 ![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
+
+Sumárne štatistiky pre koreláciu žánru od skóre.
+|       |   log_score |
+|:------|------------:|
+| count |  27         |
+| mean  |   0.0394699 |
+| std   |   0.0512069 |
+| min   |  -0.0727358 |
+| 25%   |  -0.002215  |
+| 50%   |   0.0432643 |
+| 75%   |   0.0682588 |
+| max   |   0.155022  |
+
 ![Závislosť skóre od viacerých žánrov](./images/genres2_score_corr.png)
 
 
