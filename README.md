@@ -26,12 +26,12 @@ Použité filtre na dáta:
 Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
 - 20 najlepších a 20 najhorších režisérov sme prebrali zo stránky ranker.com
 - 20 najlepších hercov sme prevzdali zo zoznamu od používateľa imdb.com s názvom <em>ChrisWalczyk55</em>
-- Zoznam filmov, v ktorých hlavná postava mala nejaké znevýhodnenie (fyzické či psychické), prebratý z viacerích zdrojov na internete
+- Zoznam filmov, v ktorých aspoň jedna z hlavných postáv mala nejaké znevýhodnenie (fyzické či psychické), sme vygenerovali pomocou GPT-4
 
 ## Miera obľúbenosti
-Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skúre filmu prenásobené logaritmom počtu hodnotení. 
+Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skóre filmu prenásobené logaritmom počtu hodnotení. 
 
-Druhé skôre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako priemerné skóre krát počet hodnotení filmu vydelené maximálnym skóre a maximálnym počtom hodnotení.
+Druhé skóre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako priemerné skóre krát počet hodnotení filmu vydelené maximálnym skóre a maximálnym počtom hodnotení.
 
 Ako tretie sme použili pragmatické skóre, počítané rovnako ako normalizované, iba namiesto maxím použijeme priemery. 
 
