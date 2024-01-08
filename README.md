@@ -131,22 +131,26 @@ Filmy sme rozdelili podľa mediánu počtu prekladov(3) na 2 skupiny (x, y=filmy
 
 Následne sme na testovanie hypotézy Wilcoxonov rank test / Mann-Whitney U-test, ktorý prijal alternatívnu hypotézu. To znamená, že filmy čo majú viac prekladov majú tendenciu byť obľúbenejšie.
 
-
+V následujúcich troch analýzach sme skúmali, že ako filmy, ktoré majú nejakú spoločnú vlastnost ovplyvňujú priemer log skóre všetkých filmov. Postupovali sme naslednovne:
+-- Odfiltrovali sme filmy s nejakou vlastosťou z datasetu
+-- Spočítali sme priemer log skóre odfiltrovaného datasetu
+-- Porovnali sme ho s priemerom log skóre kompletného datasetu filmov
+-- Interpretovali sme výsledok
 
 ### Prítomnosť obľúbeného herca zvyšuje skóre filmu
 
 ![](./images/scatter_actors.png)
 
-Prítomnosť obľúbeného herca mala vplyv na skóre na úrovni 0.5% 
+Prítomnosť obľúbeného herca mala vplyv na priemerné log skóre na úrovni 0.5%. Môžme z toho rozumieť, že filmy, kde hral nejaký z top hercov dvíhajú celkový priemer filmov - robia film obľúbeným.
 
 ### Filmy, kde hlavná postava mala znevýhodnenie, zvyšuje skóre filmu
 
 ![](./images/scatter_disab.png)
 
-Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;
+Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;. Avšak išlo o veľmi malú vzorku a číselne teda vplyv vychádza slabší ako pri obľúbených hercoch. Na grafe však môžme vidieť, že tieto filmy majú nadpriemerné log skóre.
 
 ### Filmy pre dospelích nezvyšujú skóre filmu
 
 ![](./images/scatter_adult.png)
 
-Filmy pre dospelích mali skóre 
+Filmy pre dospelích mali vplyv na skóre -0.5%. To nám hovorí, že filmy pre dospelých vo všeobecnosti nie sú obľúbené. To môžme vidieť aj z grafu, kde sa väčšina takýchto filmov nachádza pod priemerom.
