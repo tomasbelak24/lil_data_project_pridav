@@ -68,6 +68,8 @@ Nižšie na grafe môžeme vidieť rozdelenie žánrov medzi filmami. Štvrtina 
 
 ![Rozdelenie kategórií](./images/dist_of_categories.png)
 
+### Korelačná analýza
+
 Ako prvé sme pozreli, či a ako vplýva žáner filmu na jeho obľúbenosť. Z nasledujúcich grafov vidno, že skóre, resp. obľúbenosť, nemá významnú závislosť od žánru a skupín žánrov. Stredná hodnota korelácie je 4.3%, s tretím kvartilom na 6.8% percentách, čo je pod hranicou významnosti. Dva žánre, ktoré mali koreláciu nad 10%: Drama a Crime.
 
 ![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
@@ -153,4 +155,4 @@ Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;. Avšak išlo o veľmi m
 
 ![](./images/scatter_adult.png)
 
-Filmy pre dospelích mali vplyv na skóre -0.5%. To nám hovorí, že filmy pre dospelých vo všeobecnosti nie sú obľúbené. To môžme vidieť aj z grafu, kde sa väčšina takýchto filmov nachádza pod priemerom.
+To, či boli filmy označené ako "pre dospelích" malo negatívny vplyv na naše skóre v miere 0.5%. Jedným z dôvodov môže byť to, že filmy pre dospelích majú menej hlasov ako filmy pre bežné publikum. Napr. IQR počtu hlasov pre filmy pre dospelích je približne 66, pričom pre všetky ostatné filmy je to 312 hlasov, aj napriek tomu že stredné hodnoty a odchýlky priemerného ratingu sú podobné. Tu môžeme vidieť jav, ktorý sme popísali vyššie ako jednú z nevýhod našej metriky. A prečo takýto jav nastáva pri tejto kategórii filmov? Je predpokladateľné, že filmy pre dospelých pozerá menej ľudí ako "obyčajné" filmy, a teda aj menek ľudí tieto filmy hodnotí.
