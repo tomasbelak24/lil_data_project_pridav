@@ -156,3 +156,10 @@ Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;. Avšak išlo o veľmi m
 ![](./images/scatter_adult.png)
 
 To, či boli filmy označené ako "pre dospelích" malo negatívny vplyv na naše skóre v miere 0.5%. Jedným z dôvodov môže byť to, že filmy pre dospelích majú menej hlasov ako filmy pre bežné publikum. Napr. IQR počtu hlasov pre filmy pre dospelích je približne 66, pričom pre všetky ostatné filmy je to 312 hlasov, aj napriek tomu že stredné hodnoty a odchýlky priemerného ratingu sú podobné. Tu môžeme vidieť jav, ktorý sme popísali vyššie ako jednú z nevýhod našej metriky. A prečo takýto jav nastáva pri tejto kategórii filmov? Je predpokladateľné, že filmy pre dospelých pozerá menej ľudí ako "obyčajné" filmy, a teda aj menek ľudí tieto filmy hodnotí.
+
+### Trend žánrov v čase
+Podobne ako s hudbou, kedy v minulosti bol globálne obľúbený napr. rock, metal, pop a dnes hip-hop a rap, a pochopiteľne teraz vzniká viac rapových pesníčiek ako hocikedy predtým, tak sa podobne zrejme vyvíjal aj filmový priemysel. Filmy sme kategorizovali podľa žánrov a roku vydania a spočítali sme filmy v rovnakých kategóriách. Ako môžme vidieť na grafe, tak od počiatku kinematografie sa natáča najviac drám. Do roku 2000 boli ešte najviac v trende komédie a detektívky(Mystery). Od roku 2000 môžme pozorovať rozmach filmového priemyslu do viac žánrov. Zaujímavý môže byť prepad celkovej produkcie v roku 2020 - pandémia. Tvrdíme, že počet filmov jednotlivých žánrov je zrkadlo ich obľúbenosti v spoločnosti. Bez dopytu by nebola ponuka. 
+
+![](./images/priebeh_zanrov.png)
+
+### Záver
