@@ -163,3 +163,10 @@ Podobne ako s hudbou, kedy v minulosti bol globálne obľúbený napr. rock, met
 ![](./images/priebeh_zanrov.png)
 
 ### Záver
+
+V našich analýzach sme sa pokúšali o identifikovanie odpovedí na otázku, ktorá tvorí nadpis tohoto projektu. Čo robí filmy obľúbenými resp. neobľúbenými ? Zadefinovali sme si vlastnú metriku obľúbenosti a následne sme skúmali viacero faktorov, ktoré by na ňu mohli mať vplyv. V exploratívnej analýze sme skúmali korelácie obľúbenosti so žánrom - tie sa ukázali ako nesignifikantné. Preto sme k žánrom pristúpili inak a skúmali sme trendy natáčania v priebehu rokov. Zistili sme, že najviac sa natáčajú drámy, komédie, dokumenty a mysteriózne filmy. Tieto žánre teda robia filmy obľúbenými.
+Ďalej sme skúmali, či je režisér relevantný faktor pri obľúbenosti filmov. Z našich analýz sme zistili, že režisér má vplyv na obľúbenosť filmu. K podobnému záveru sme došli aj pri skúmaní vplyvu obsadenia nejakého obľúbeného herca.
+Skúmali sme bližšie či počet prekladov má na obľúbenosť vplyv. Záver bol, že áno má, ale ostáva to otvorené, pretože čo bolo prvé: bol film najskôr prekladaný a potom obľúbený, alebo naopak ?
+Pozreli sme sa na filmy, v ktorých jedna z hlavných postáv mala nejaké postihnutie, či už fyzické alebo psychické. Podarilo sa nám získať k pôvodnému datasetu len relatívne malú vzorku a ukázalo sa, že takéto filmy majú tendeciu byť obľúbené.
+Na druhú stranu filmy pre dospelých majú predpoklad byť podpriemerne obľúbené a teda ak by chcel režisér tvoriť obľúbené filmy, tak by sa ich mal snažiť tvoriť tak aby nezískali tento prívlastok.
+
