@@ -25,7 +25,7 @@ Použité filtre na dáta:
 
 Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
 - 20 najlepších a 20 najhorších režisérov sme prebrali zo stránky ranker.com
-- 20 najlepších hercov sme prevzdali zo zoznamu od používateľa imdb.com s názvom <em>ChrisWalczyk55</em>
+- 20 najlepších hercov sme prevzali zo zoznamu od používateľa imdb.com s názvom <em>ChrisWalczyk55</em>
 - Zoznam filmov, v ktorých aspoň jedna z hlavných postáv mala nejaké znevýhodnenie (fyzické či psychické), sme vygenerovali pomocou GPT-4
 
 ## Miera obľúbenosti
