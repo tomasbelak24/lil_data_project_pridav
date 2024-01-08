@@ -57,20 +57,18 @@ Ako aj z porovnania sumárnych štatistík, strednej hodnoty a mediánu, vidno, 
 
 Naša miera obľúbenosti, log skóre, má jednu zásadnú nevýhodu. Vieme ukázať, že film s veľmi veľa negatívnymi hlasmi môže mať rovnaké, ak nie lepšie log skóre, ako film s málo perfektnými hodnoteniami. Napríklad film s priemerným hodnotením 10 a desiatimi hlasmi bude mať rovnaké skóre, ako film s priemerným skóre 1 a počtom hlasov `10^10`. Toto vnímame ako veľkú slabinu a uvedomili sme si to až pri písaní reportu. Znamenalo by to, že film, ktorý je globálne nenávidený by sme my cez log skóre vnímali, ako celkom obľúbený. 
 
-**TODO pohladat zaznamy, kde toto nastava a popisat, co s tym**
-
 ## Exploratívna dátová analýza
 ### Základné vlastnosti našich dát:
 
-**TODO Rozdelenie log skóre**
+V nasledujúcom grafe môžeme vidieť rozdelenie nášho skóre prideleného filmom. 
 
 ![Histogram rozdelenia log skóre](./images/log_score_dist.png)
+
+Nižšie na grafe môžeme vidieť rozdelenie žánrov medzi filmami. Štvrtina filmov má žáner Drama, druhú štvrtinu filmov si delia Comedy a Documentary a zvyšných 50% si podelia zostávajúce žánre.
 
 ![Rozdelenie kategórií](./images/dist_of_categories.png)
 
 Ako prvé sme pozreli, či a ako vplýva žáner filmu na jeho obľúbenosť. Z nasledujúcich grafov vidno, že skóre, resp. obľúbenosť, nemá významnú závislosť od žánru a skupín žánrov. Stredná hodnota korelácie je 4.3%, s tretím kvartilom na 6.8% percentách, čo je pod hranicou významnosti. Dva žánre, ktoré mali koreláciu nad 10%: Drama a Crime.
-
-**TODO: Doplniť popis a vysvetlenia**
 
 ![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
 
@@ -103,6 +101,8 @@ Pre skupiny žánrov korelácia neprináša lepšie výsledky. Skupiny žánrov 
 | max   |  0.099292    | -->
 
 Dĺžka filmu ani rok výroby filmu nemajú zásadný vpliv na naše log skóre, obe majú koreláciu okolo 5%. 
+
+![](./images/corr_various.png)
 
 ## Hypotézy a pozorovania
 Následne sme v našom projekte stanovili viacero hypotéz.
