@@ -24,8 +24,8 @@ Použité filtre na dáta:
 - vybrali sme len hercov a režisérov a iba takích, ktorí pracovali na filmoch v našej tabuľke
 
 Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
-- 20 najlepších, najhorších hercov a režisérov sme spísali z štatistík na portáli IMDb
-- Zoznam filmov, v ktorých hlavná postava mala nejaké znevýhodnenie (fyzické či psychické)
+- 20 najlepších, najhorších hercov a režisérov sme prebrali z štatistík na portáli IMDb
+- Zoznam filmov, v ktorých hlavná postava mala nejaké znevýhodnenie (fyzické či psychické), prebratý z viacerích zdrojov na internete
 
 ## Miera obľúbenosti
 Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skúre filmu prenásobené logaritmom počtu hodnotení. 
@@ -69,7 +69,7 @@ Ako prvé sme pozreli, či a ako vplýva žáner filmu na jeho obľúbenosť. Z 
 
 ![Závislosť skóre od 1 žánru](./images/genres_score_corr.png)
 
-Sumárne štatistiky pre koreláciu žánru od skóre.
+<!-- Sumárne štatistiky pre koreláciu žánru od skóre.
 |       |   log_score |
 |:------|------------:|
 | count |  27         |
@@ -79,11 +79,13 @@ Sumárne štatistiky pre koreláciu žánru od skóre.
 | 25%   |  -0.002215  |
 | 50%   |   0.0432643 |
 | 75%   |   0.0682588 |
-| max   |   0.155022  |
+| max   |   0.155022  | -->
+
+Pre skupiny žánrov korelácia neprináša lepšie výsledky. Skupiny žánrov - film má viac žánrov naraz. Takéto filmy majú koreláciu so skóre so strednou hodnotou približne nula a štandardnou odchýlkou 4%. Najlepšia skupina žánrov je trojica Comedy-Drama-Romance na 10%.
 
 ![Závislosť skóre od viacerých žánrov](./images/genres2_score_corr.png)
 
-Závislosť skóre od viacerích žánrov
+<!-- Závislosť skóre od viacerích žánrov
 |       |    log_score |
 |:------|-------------:|
 | count | 30           |
@@ -93,7 +95,16 @@ Závislosť skóre od viacerích žánrov
 | 25%   | -0.030552    |
 | 50%   | -0.00704689  |
 | 75%   |  0.0228701   |
-| max   |  0.099292    |
+| max   |  0.099292    | -->
+
+Dĺžka filmu ani rok výroby filmu nemajú zásadný vpliv na naše log skóre, obe majú koreláciu okolo 5%. 
 
 ## Hypotézy a pozorovania
-TODO
+Následne sme v našom projekte stanovili viacero hypotéz.
+
+### Stredná hodnota priemerného skóre najlepších režisérov je menšia rovná ako stredná hodnota priemerného skóre najhorších režisérov
+H0: &mu;x <= &mu;y vs. H1: &mu;x > &mu;y
+
+Skupiny dát x, y pochádzajú z normálneho rozdelenia, takže môžeme použiť študentov t-test. Ten nám vyšiel s p-hodnotou blízkou nule, a teda potvrdil alternatívnu hypotézu, že filmy obľúbených režisérov majú lepšie skóre a sú teda obľôbenejšie.
+
+### Filmy s málo prekladmi majú horšie alebo rovné skóre
