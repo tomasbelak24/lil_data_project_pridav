@@ -126,8 +126,9 @@ veľkým počtom prekladov. Vychádzali sme z následovne postavenej hypotézy:
 *H0: &mu;x >= &mu;y vs. H1: &mu;x < &mu;y*
 
 Filmy sme rozdelili podľa mediánu počtu prekladov(3) na 2 skupiny (x, y=filmy s viac prekladmi). Pred testovaním hypotézy sme najskôr museli overiť normalitu dát. Z následujúcich qq-plotov môžme vidieť, že ani jedna zo skupín sa neriadi normálnym rozdelením, čo potvrdil aj Kolmogorovov-Smirnovov test.
-![.](./images/qqplot_vela_prekladov.png)
-![.](./images/qqplot_malo_prekladov.png)
+
+![.](./images/qqplot_vela_prekladov.png) ![.](./images/qqplot_malo_prekladov.png)
+
 Následne sme na testovanie hypotézy Wilcoxonov rank test / Mann-Whitney U-test, ktorý prijal alternatívnu hypotézu. To znamená, že filmy čo majú viac prekladov majú tendenciu byť obľúbenejšie.
 
 
