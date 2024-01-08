@@ -107,10 +107,17 @@ Dĺžka filmu ani rok výroby filmu nemajú zásadný vpliv na naše log skóre,
 ## Hypotézy a pozorovania
 Následne sme v našom projekte stanovili viacero hypotéz.
 
+Našli sme stránku ranker.com, kde sú vytvorené rôzne rebríčky a ľudia tam hlasujú o poradí. Existuje tam aj rebríček najlepších a najhorších režisérov a chceli sme sa pozrieť na to,
+či top režiséri skutočne robia lepšie filmy ako tí najhorší. Testovali sme teda následovnú hypotézu:
 ### Stredná hodnota priemerného skóre najlepších režisérov je menšia rovná ako stredná hodnota priemerného skóre najhorších režisérov
 *H0: &mu;x <= &mu;y vs. H1: &mu;x > &mu;y*
 
-Skupiny dát x, y pochádzajú z normálneho rozdelenia, takže môžeme použiť študentov t-test. Ten nám vyšiel s p-hodnotou blízkou nule, a teda potvrdil alternatívnu hypotézu, že filmy obľúbených režisérov majú lepšie skóre a sú teda obľôbenejšie.
+Predtým ako budeme testovať musíme overiť či dáta x a y pochádzajú z normálneho rozdelenia.
+![Normalita log skóre top režisérov](./images/top_dir_hist.png) ![Normalita log skóre najhorších režisérov](./images/worst_dir_hist.png)
+![Normalita log skóre top režisérov](./images/top_dir_qq.png) ![Normalita log skóre najhorších režisérov](./images/worst_dir_qq.png)
+
+Skupiny dát x, y pochádzajú z normálneho rozdelenia, takže môžeme použiť študentov t-test. Ten nám vyšiel s p-hodnotou blízkou nule, a teda potvrdil alternatívnu hypotézu, že filmy obľúbených režisérov majú lepšie log skóre a sú teda obľôbenejšie. Tvrdíme teda, že ak film režíroval jeden z top 20 režisérov z rebríčka na ranker.com, tak má predpoklad na to byť
+obľúbenejší ako keby ho režíroval režisér z opačného konca rebríčka.
 
 ### Filmy s málo prekladmi majú lepšie alebo rovné skóre ako filmy s veľa prekladmi
 
