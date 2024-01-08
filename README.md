@@ -109,7 +109,7 @@ Následne sme v našom projekte stanovili viacero hypotéz.
 
 Našli sme stránku ranker.com, kde sú vytvorené rôzne rebríčky a ľudia tam hlasujú o poradí. Existuje tam aj rebríček najlepších a najhorších režisérov a chceli sme sa pozrieť na to,
 či top režiséri skutočne robia lepšie filmy ako tí najhorší. Testovali sme teda následovnú hypotézu:
-### Stredná hodnota priemerného skóre najlepších režisérov je menšia rovná ako stredná hodnota priemerného skóre najhorších režisérov
+### Stredná hodnota priemerného log skóre filmov režírovaných najlepšími režisérmi(x) je menšia rovná ako stredná hodnota priemerného log skóre filmov režírovaných najhoršími režisérmi(y)
 *H0: &mu;x <= &mu;y vs. H1: &mu;x > &mu;y*
 
 Predtým ako budeme testovať musíme overiť či dáta x a y pochádzajú z normálneho rozdelenia.
@@ -119,9 +119,18 @@ Predtým ako budeme testovať musíme overiť či dáta x a y pochádzajú z nor
 Skupiny dát x, y pochádzajú z normálneho rozdelenia, takže môžeme použiť študentov t-test. Ten nám vyšiel s p-hodnotou blízkou nule, a teda potvrdil alternatívnu hypotézu, že filmy obľúbených režisérov majú lepšie log skóre a sú teda obľôbenejšie. Tvrdíme teda, že ak film režíroval jeden z top 20 režisérov z rebríčka na ranker.com, tak má predpoklad na to byť
 obľúbenejší ako keby ho režíroval režisér z opačného konca rebríčka.
 
-### Filmy s málo prekladmi majú lepšie alebo rovné skóre ako filmy s veľa prekladmi
 
+Medzi počtom prekladov a log skóre bola oproti ostatným atribútom pomerne významná korelácia. Chceli sme preto otestovať či filmy s málo prekladmi majú naozaj horšie log skóre ako filmy s
+veľkým počtom prekladov. Vychádzali sme z následovne postavenej hypotézy:
+### Filmy s málo prekladmi majú lepšie alebo rovné skóre ako filmy s veľa prekladmi
 *H0: &mu;x >= &mu;y vs. H1: &mu;x < &mu;y*
+
+Filmy sme rozdelili podľa mediánu počtu prekladov(3) na 2 skupiny (x, y=filmy s viac prekladmi). Pred testovaním hypotézy sme najskôr museli overiť normalitu dát. Z následujúcich qq-plotov môžme vidieť, že ani jedna zo skupín sa neriadi normálnym rozdelením, čo potvrdil aj Kolmogorovov-Smirnovov test.
+![.](./images/qqplot_vela_prekladov.png)
+![.](./images/qqplot_malo_prekladov.png)
+Následne sme na testovanie hypotézy Wilcoxonov rank test / Mann-Whitney U-test, ktorý prijal alternatívnu hypotézu. To znamená, že filmy čo majú viac prekladov majú tendenciu byť obľúbenejšie.
+
+
 
 ### Prítomnosť obľúbeného herca zvyšuje skóre filmu
 
