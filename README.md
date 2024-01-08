@@ -6,12 +6,12 @@ Skupina: Lil Data
 ```
 
 ## Zdroj dát
-Naše dáta pochádzajú z portálu IMDb - internetovej filmovej databázy. Stiahli sme si dáta vo formáte .tsv zo [stránky](https://datasets.imdbws.com/) a exportovali do databázy.
+Naše dáta pochádzajú z portálu IMDb - internetovej filmovej databázy. Stiahli sme si dáta vo formáte .tsv zo [stránky](https://datasets.imdbws.com/). Dáta boli príliš veľké na to, aby sme ich nahrali do pamäte a ďalej s nimi pracovali. Exportovali sme ich preto do sqlite3 databázy vo forme .db súboru aby sme v pamäti mali len to, na čo sme sa databázy dotazovali.
 
-V práci používame primárne nami vytvorenú tabuľku `df_films`, ktorá vznikla spojením a dopočítaním viacerích tabuliek z našej databázy. V tabuľke máme nasledovné dáta o filmoch: 
+V práci používame primárne nami vytvorenú tabuľku `df_films`, ktorá vznikla spojením a dopočítaním viacerích tabuliek z našej databázy. V tabuľke máme nasledovné atribúty o filmoch: 
 - priemerné hodnotenie, 
 - počet hodnotení, 
-- nami vypočítané skóre (viac v nasledujúcej časti textu),
+- nami vypočítaná obľúbenosť (viac v nasledujúcej časti textu),
 - počet prekladov filmu, 
 - či je film pre dospelých, 
 - rok výroby filmu, 
@@ -29,9 +29,12 @@ Zároveň sme vyhľadali a pracovali aj s nasledujúcimi dátami
 - Zoznam filmov, v ktorých aspoň jedna z hlavných postáv mala nejaké znevýhodnenie (fyzické či psychické), sme vygenerovali pomocou GPT-4
 
 ## Miera obľúbenosti
-Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou, a najlepšou bolo logskóre, vypočítané ako priemerné skóre filmu prenásobené logaritmom počtu hodnotení. 
+Ako reprezentovať obľúbenosť ? Ktoré atribúty môžu reprezentovať obľubenosť ? Hovorí nám rating filmu o tom, či je obľúbený ? Hovorí niečo o obľúbenosti filmu, koľko recenzíi dostal ?
+Mnoho filmov nemá najlepšie hodnotenia no aj tak sú medzi ľuďmi obľúbené, často ide o Hollywoodske trháky, ktorých marketing vyvolá hype no finálny produkt má ďaleko od kinematografického skvostu. Tieto filmy, sú však diskutným predmetom, často spomínané, rozoberané a na filmových portáloch sa k nim vyjadruje veľa ľudí/kritikov - teda zrejme budú aj obľúbené. Chceli sme preto obľúbenosť reprezentovať metrikou, ktorá sa podobá aj nejakému nášmu podvedomému rozhodovaniu pri výberu reštaurácie, ktoré nepoznáme. Príklad: nachádzame sa v cudzine, na výber máme 2 reštaurácie, jedna má 4.5 hviezdičky na Googli avšak dostala len 10 recenzií. Druhá má síce už len 4.1 hviezdičky, ale obrdžala 700 recenzií. Zamysleli sme sa nad tým a všetci by sme radšej išli do reštaurácie číslo 2. Vybrali by sme si však reštauráciu č.2 aj keby mala len 3.6 hviezdičky ? No, vtedy by sme radšej riskli prvú reštauráciu. Tento proces výberu sme chceli zachovať aj v metrike pre filmy.
 
-Druhé skóre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako priemerné skóre krát počet hodnotení filmu vydelené maximálnym skóre a maximálnym počtom hodnotení.
+Pre definíciu miery obľúbenosti sme skúšali tri metriky. Prvou bolo log_score vypočítané ako priemerný rating filmu prenásobené logaritmom počtu hodnotení. 
+
+Druhé skóre, ktoré sme skúšali, bolo normalizované skóre. Počítané ako priemerný rating krát počet hodnotení filmu vydelené maximálnym rating a maximálnym počtom hodnotení.
 
 Ako tretie sme použili pragmatické skóre, počítané rovnako ako normalizované, iba namiesto maxím použijeme priemery. 
 
@@ -48,10 +51,11 @@ Z nasledujúcej tabuľky môžeme vidieť, že aj normalizované aj pragmatické
 | 75%   |         7.1     |    315           |     34.1694  |      6.21367e-05 |      0.0786261   |
 | max   |        10       |      2.83492e+06 |    138.175   |      0.93        |   1176.8         |
 
-**TODO Prečo sme zvolili log skóre?**
+Log skóre sa nám javilo ako najlepšie reprezentujúce našu ideu o metrike a preto sme sa rozhodli nim reprezentovať obľúbenost filmu.
+Ako aj z porovnania sumárnych štatistík, strednej hodnoty a mediánu, vidno, tak log skóre takto rozdelilo filmy na obľúbené a neobľúbené.
 
 
-Naša miera obľúbenosti, log skóre, má jednu zásadnú nevýhodu. Vieme ukázať, že film s veľmi veľa negatívnymi hlasmi môže mať rovnaké, ak nie lepšie log skóre, ako film s málo perfektnými hodnoteniami. Napríklad film s priemerným hodnotením 10 a desiatimi hlasmi bude mať rovnaké skóre, ako film s priemerným skóre 1 a počtom hlasov `10^10`. 
+Naša miera obľúbenosti, log skóre, má jednu zásadnú nevýhodu. Vieme ukázať, že film s veľmi veľa negatívnymi hlasmi môže mať rovnaké, ak nie lepšie log skóre, ako film s málo perfektnými hodnoteniami. Napríklad film s priemerným hodnotením 10 a desiatimi hlasmi bude mať rovnaké skóre, ako film s priemerným skóre 1 a počtom hlasov `10^10`. Toto vnímame ako veľkú slabinu a uvedomili sme si to až pri písaní reportu. Znamenalo by to, že film, ktorý je globálne nenávidený by sme my cez log skóre vnímali, ako celkom obľúbený. 
 
 **TODO pohladat zaznamy, kde toto nastava a popisat, co s tym**
 
