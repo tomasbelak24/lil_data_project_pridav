@@ -103,8 +103,28 @@ Dĺžka filmu ani rok výroby filmu nemajú zásadný vpliv na naše log skóre,
 Následne sme v našom projekte stanovili viacero hypotéz.
 
 ### Stredná hodnota priemerného skóre najlepších režisérov je menšia rovná ako stredná hodnota priemerného skóre najhorších režisérov
-H0: &mu;x <= &mu;y vs. H1: &mu;x > &mu;y
+*H0: &mu;x <= &mu;y vs. H1: &mu;x > &mu;y*
 
 Skupiny dát x, y pochádzajú z normálneho rozdelenia, takže môžeme použiť študentov t-test. Ten nám vyšiel s p-hodnotou blízkou nule, a teda potvrdil alternatívnu hypotézu, že filmy obľúbených režisérov majú lepšie skóre a sú teda obľôbenejšie.
 
-### Filmy s málo prekladmi majú horšie alebo rovné skóre
+### Filmy s málo prekladmi majú lepšie alebo rovné skóre ako filmy s veľa prekladmi
+
+*H0: &mu;x >= &mu;y vs. H1: &mu;x < &mu;y*
+
+### Prítomnosť obľúbeného herca zvyšuje skóre filmu
+
+![](./images/scatter_actors.png)
+
+Prítomnosť obľúbeného herca mala vplyv na skóre na úrovni 0.5% 
+
+### Filmy, kde hlavná postava mala znevýhodnenie, zvyšuje skóre filmu
+
+![](./images/scatter_disab.png)
+
+Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;
+
+### Filmy pre dospelích nezvyšujú skóre filmu
+
+![](./images/scatter_adult.png)
+
+Filmy pre dospelích mali skóre 
