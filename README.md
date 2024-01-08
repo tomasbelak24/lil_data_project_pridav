@@ -154,3 +154,10 @@ Tieto filmy mali vplyv na skóre na úrovni 0.5&permil;. Avšak išlo o veľmi m
 ![](./images/scatter_adult.png)
 
 Filmy pre dospelích mali vplyv na skóre -0.5%. To nám hovorí, že filmy pre dospelých vo všeobecnosti nie sú obľúbené. To môžme vidieť aj z grafu, kde sa väčšina takýchto filmov nachádza pod priemerom.
+
+### Trend žánrov v čase
+Podobne ako s hudbou, kedy v minulosti bol globálne obľúbený napr. rock, metal, pop a dnes hip-hop a rap, a pochopiteľne teraz vzniká viac rapových pesníčiek ako hocikedy predtým, tak sa podobne zrejme vyvíjal aj filmový priemysel. Filmy sme kategorizovali podľa žánrov a roku vydania a spočítali sme filmy v rovnakých kategóriách. Ako môžme vidieť na grafe, tak od počiatku kinematografie sa natáča najviac drám. Do roku 2000 boli ešte najviac v trende komédie a detektívky(Mystery). Od roku 2000 môžme pozorovať rozmach filmového priemyslu do viac žánrov. Zaujímavý môže byť prepad celkovej produkcie v roku 2020 - pandémia. Tvrdíme, že počet filmov jednotlivých žánrov je zrkadlo ich obľúbenosti v spoločnosti. Bez dopytu by nebola ponuka. 
+
+![](./images/priebeh_zanrov.png)
+
+### Záver
